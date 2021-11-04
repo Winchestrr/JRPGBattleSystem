@@ -9,10 +9,20 @@ public class AnimationControler : MonoBehaviour
     public Animator heroAnimator;
     public static Animator enemyAnimator;
 
+    public GameObject healAnimGO;
+    public Animator healAnimator;
+
+
+
     private void Start()
     {
         heroAnimator = battleSystem.playerGO.GetComponent<Animator>();
         enemyAnimator = battleSystem.enemyGO.GetComponent<Animator>();
+    }
+
+    public void AnimDestroy()
+    {
+
     }
 
     public void heroAttackAnim()
@@ -28,5 +38,11 @@ public class AnimationControler : MonoBehaviour
     public static void hurtAnim()
     {
         enemyAnimator.SetTrigger("hurt");
+    }
+
+    public void healAnim()
+    {
+        Instantiate(healAnimGO, battleSystem.playerBattleStation);
+        healAnimator = healAnimGO.GetComponent<Animator>();
     }
 }

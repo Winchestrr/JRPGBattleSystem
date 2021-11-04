@@ -128,6 +128,8 @@ public class BattleSystem : MonoBehaviour
     IEnumerator PlayerHeal()
     {
         sfxManager.playSound("heal");
+        animationControler.healAnim();
+
 
         playerUnit.Heal(5);
 
