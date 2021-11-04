@@ -56,4 +56,16 @@ public class AnimationControler : MonoBehaviour
 
         healAnimator = healAnimGO.GetComponent<Animator>();
     }
+
+    public void dieAnim(string target)
+    {
+        if (target == "hero")
+        {
+            heroAnimator.SetTrigger("die");
+        }
+        else
+        {
+            enemyAnimator.SetTrigger("die");
+        }
+    }    
 }

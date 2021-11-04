@@ -29,7 +29,8 @@ public class Unit : MonoBehaviour
 
         if(currentHP <= 0)
         {
-            Debug.Log("Enemy is dead");
+            animationControler.dieAnim(unitType);
+
             currentHP = 0;
             return true;
         }
