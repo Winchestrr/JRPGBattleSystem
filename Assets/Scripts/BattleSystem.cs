@@ -128,7 +128,7 @@ public class BattleSystem : MonoBehaviour
     IEnumerator PlayerHeal()
     {
         sfxManager.playSound("heal");
-        animationControler.healAnim();
+        animationControler.healAnim("hero");
 
 
         playerUnit.Heal(5);
@@ -158,6 +158,8 @@ public class BattleSystem : MonoBehaviour
         if(enemyUnit.currentHP < enemyUnit.maxHP/2 && tempRandom > 100 - orcHealChance)
         {
             //heal
+            animationControler.healAnim("enemy");
+
             sfxManager.playSound("heal");
             Debug.Log("Heal");
             enemyUnit.currentHP += 15;

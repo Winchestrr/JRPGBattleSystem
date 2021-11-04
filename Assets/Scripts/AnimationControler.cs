@@ -20,11 +20,6 @@ public class AnimationControler : MonoBehaviour
         enemyAnimator = battleSystem.enemyGO.GetComponent<Animator>();
     }
 
-    public void AnimDestroy()
-    {
-
-    }
-
     public void heroAttackAnim()
     {
         heroAnimator.SetTrigger("attack");
@@ -35,14 +30,30 @@ public class AnimationControler : MonoBehaviour
         enemyAnimator.SetTrigger("attack");
     }
 
-    public static void hurtAnim()
+    public void hurtAnim(string target)
     {
-        enemyAnimator.SetTrigger("hurt");
+        if(target == "hero")
+        {
+            heroAnimator.SetTrigger("hurt");
+        }
+        else
+        {
+            enemyAnimator.SetTrigger("hurt");
+        }
+        
     }
 
-    public void healAnim()
+    public void healAnim(string name)
     {
-        Instantiate(healAnimGO, battleSystem.playerBattleStation);
+        if(name == "hero")
+        {
+            Instantiate(healAnimGO, battleSystem.playerBattleStation);
+        }
+        else
+        {
+            Instantiate(healAnimGO, battleSystem.enemyBattleStation);
+        }
+
         healAnimator = healAnimGO.GetComponent<Animator>();
     }
 }

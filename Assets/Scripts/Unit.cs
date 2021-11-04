@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Unit : MonoBehaviour
 {
+    public GameObject animationControlerGO;
+    public AnimationControler animationControler;
+
     public string unitType;
 
     public string unitName;
@@ -13,6 +16,12 @@ public class Unit : MonoBehaviour
 
     public int maxHP;
     public int currentHP;
+
+    private void Start()
+    {
+        animationControlerGO = GameObject.Find("AnimationControler");
+        animationControler = animationControlerGO.GetComponent<AnimationControler>();
+    }
 
     public bool TakeDamage(int dmg)
     {
@@ -26,10 +35,8 @@ public class Unit : MonoBehaviour
         }
         else
         {
-            if(gameObject.tag == "Enemy")
-            {
-                AnimationControler.hurtAnim();
-            }
+            animationControler.hurtAnim(unitType);
+
             return false;
         }
     }

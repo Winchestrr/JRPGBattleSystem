@@ -98,7 +98,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4b09af26a95ea94aa06dbe8b6a2dcd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitType: fighter
+  animationControlerGO: {fileID: 0}
+  animationControler: {fileID: 0}
+  unitType: hero
   unitName: Hero
   unitLevel: 5
   damage: 10
