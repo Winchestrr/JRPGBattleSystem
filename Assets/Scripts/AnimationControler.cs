@@ -67,5 +67,10 @@ public class AnimationControler : MonoBehaviour
         {
             enemyAnimator.SetTrigger("die");
         }
-    }    
+    }
+
+    public void DamageTextAnim()
+    {
+
+    }
 }

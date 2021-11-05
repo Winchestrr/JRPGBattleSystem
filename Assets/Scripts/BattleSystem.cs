@@ -30,6 +30,7 @@ public class BattleSystem : MonoBehaviour
     public BattleHUD enemyHUD;
 
     public AnimationControler animationControler;
+    public DamageText damageText;
 
     public BattleState state;
 
@@ -176,6 +177,9 @@ public class BattleSystem : MonoBehaviour
                 //critical hit
                 sfxManager.playSound("smash");
                 isDead = playerUnit.TakeDamage(enemyUnit.damage * 3);
+
+                damageText.VisualizePlayerDamage(enemyUnit.damage * 3, "damage");
+
                 dialogText.text = enemyUnit.unitName + " hits critical!";
                 yield return new WaitForSeconds(1f);
             }
@@ -184,6 +188,8 @@ public class BattleSystem : MonoBehaviour
                 //normal hit
                 sfxManager.playSound("bonk");
                 isDead = playerUnit.TakeDamage(enemyUnit.damage);
+
+                damageText.VisualizePlayerDamage(enemyUnit.damage, "damage");
             }  
         }
 
